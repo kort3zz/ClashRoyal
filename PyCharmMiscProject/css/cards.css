@@ -1,0 +1,384 @@
+:root {
+    --primary-gold: #FFD700;
+    --secondary-purple: #8A2BE2;
+    --dark-blue: #0A1428;
+    --light-blue: #1C2E4A;
+    --white: #FFFFFF;
+    --gray: #B8B8B8;
+    --common-color: #B9C2C7;
+    --rare-color: #4CB5FF;
+    --epic-color: #C14FFF;
+    --legendary-color: #FFD700;
+    --champion-color: #FF6B6B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0A1428 0%, #1a2a44 100%);
+    color: var(--white);
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* Шапка */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 20, 40, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-gold);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--primary-gold), var(--secondary-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: all 0.3s;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    color: var(--primary-gold);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+nav a.active {
+    color: var(--primary-gold);
+    background: rgba(255, 215, 0, 0.15);
+    border: 1px solid var(--primary-gold);
+}
+
+/* Фильтры */
+.filters {
+    background: rgba(28, 46, 74, 0.5);
+    padding: 20px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.search-box {
+    position: relative;
+    width: 300px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 40px 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 25px;
+    color: var(--white);
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-gold);
+}
+
+.rarity-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rarity-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.rarity-btn:hover {
+    transform: translateY(-2px);
+}
+
+.rarity-btn.active {
+    background: var(--primary-gold);
+    color: var(--dark-blue);
+    border-color: var(--primary-gold);
+}
+
+.rarity-btn.common { border-color: var(--common-color); }
+.rarity-btn.rare { border-color: var(--rare-color); }
+.rarity-btn.epic { border-color: var(--epic-color); }
+.rarity-btn.legendary { border-color: var(--legendary-color); }
+.rarity-btn.champion { border-color: var(--champion-color); }
+
+/* Статистика */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-gold);
+    display: block;
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Контейнер карточек */
+.cards-container {
+    padding: 30px 5%;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.page-subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+/* Сетка карточек */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+@media (min-width: 1400px) {
+    .cards-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .cards-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Карточка */
+.card-item {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 2/3;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    z-index: 10;
+}
+
+/* Цвета рамок по редкости */
+.card-item.common { border-color: var(--common-color); }
+.card-item.rare { border-color: var(--rare-color); }
+.card-item.epic { border-color: var(--epic-color); }
+.card-item.legendary { border-color: var(--legendary-color); }
+.card-item.champion { border-color: var(--champion-color); }
+
+/* Эффекты свечения при наведении */
+.card-item.common:hover { box-shadow: 0 15px 30px rgba(185, 194, 199, 0.4); }
+.card-item.rare:hover { box-shadow: 0 15px 30px rgba(76, 181, 255, 0.4); }
+.card-item.epic:hover { box-shadow: 0 15px 30px rgba(193, 79, 255, 0.4); }
+.card-item.legendary:hover { box-shadow: 0 15px 30px rgba(255, 215, 0, 0.4); }
+.card-item.champion:hover { box-shadow: 0 15px 30px rgba(255, 107, 107, 0.4); }
+
+/* Изображение карточки */
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Индикатор эликсира */
+.elixir-cost {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid white;
+    z-index: 2;
+}
+
+/* Индикатор редкости */
+.rarity-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.rarity-indicator.common { background: var(--common-color); color: var(--dark-blue); }
+.rarity-indicator.rare { background: var(--rare-color); color: var(--dark-blue); }
+.rarity-indicator.epic { background: var(--epic-color); color: var(--dark-blue); }
+.rarity-indicator.legendary { background: var(--legendary-color); color: var(--dark-blue); }
+.rarity-indicator.champion { background: var(--champion-color); color: var(--dark-blue); }
+
+/* Подвал */
+.footer {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 30px 5%;
+    margin-top: 50px;
+    border-top: 2px solid var(--primary-gold);
+}
+
+.footer-content {
+    text-align: center;
+    color: var(--gray);
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filters {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .stats-bar {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все карты Clash Royale | 121 карта</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-text">CLASH ROYALE</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="body.html"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="cards.html" class="active"><i class="fas fa-crown"></i> Все карты</a></li>
+                <li><a href="#"><i class="fas fa-trophy"></i> Турниры</a></li>
+                <li><a href="#"><i class="fas fa-newspaper"></i> Новости</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Фильтры -->
+    <div class="filters">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Поиск карты...">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="rarity-filters">
+            <button class="rarity-btn active" data-rarity="all">Все</button>
+            <button class="rarity-btn common" data-rarity="common">Обычные</button>
+            <button class="rarity-btn rare" data-rarity="rare">Редкие</button>
+            <button class="rarity-btn epic" data-rarity="epic">Эпические</button>
+            <button class="rarity-btn legendary" data-rarity="legendary">Легендарные</button>
+            <button class="rarity-btn champion" data-rarity="champion">Чемпионы</button>
+        </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="stats-bar">
+        <div class="stat">
+            <span class="stat-number" id="totalCards">121</span>
+            <span class="stat-label">Всего карт</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number" id="shownCards">121</span>
+            <span class="stat-label">Показано</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">4.2</span>
+            <span class="stat-label">Сред. эликсир</span>
+        </div>
+    </div>
+
+    <!-- Контейнер карточек -->
+    <main class="cards-container">
+        <h1 class="page-title">ВСЕ КАРТЫ CLASH ROYALE</h1>
+        <p class="page-subtitle">Нажмите на карту для подробной информации</p>
+
+        <div class="cards-grid" id="cardsGrid">
+            <!-- Карточки будут добавлены через JavaScript -->
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 Clash Royale. Все карты от Supercell.</p>
+            <p>Всего карт: <span id="footerCardCount">121</span></p>
+        </div>
+    </footer>
+
+    <script src="js/cards.js"></script>
+</body>
+</html>

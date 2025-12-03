@@ -1,0 +1,323 @@
+:root {
+    --primary-gold: #FFD700;
+    --secondary-purple: #8A2BE2;
+    --dark-blue: #0A1428;
+    --light-blue: #1C2E4A;
+    --white: #FFFFFF;
+    --gray: #B8B8B8;
+    --common-color: #B9C2C7;
+    --rare-color: #4CB5FF;
+    --epic-color: #C14FFF;
+    --legendary-color: #FFD700;
+    --champion-color: #FF6B6B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0A1428 0%, #1a2a44 100%);
+    color: var(--white);
+    min-height: 100vh;
+}
+
+/* Кнопка назад */
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: var(--primary-gold);
+    color: var(--dark-blue);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* Основной контейнер */
+.detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* Шапка карточки */
+.card-header {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.card-image-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    position: relative;
+}
+
+.card-main-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.card-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.card-name {
+    font-size: 3rem;
+    color: var(--primary-gold);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.card-rarity {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.rarity-common { background: var(--common-color); color: var(--dark-blue); }
+.rarity-rare { background: var(--rare-color); color: var(--dark-blue); }
+.rarity-epic { background: var(--epic-color); color: var(--dark-blue); }
+.rarity-legendary { background: var(--legendary-color); color: var(--dark-blue); }
+.rarity-champion { background: var(--champion-color); color: var(--dark-blue); }
+
+.card-elixir {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+    border: 3px solid white;
+    margin-left: auto;
+}
+
+.card-description {
+    font-size: 1.2rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+/* Основная статистика */
+.main-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-gold);
+}
+
+.stat-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--primary-gold);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 1rem;
+}
+
+/* Секции с информацией */
+.info-section {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+    color: var(--primary-gold);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+.info-list li i {
+    color: var(--primary-gold);
+    width: 20px;
+}
+
+/* Сетка слабых и сильных сторон */
+.strengths-weaknesses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.strengths-grid, .weaknesses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.strength-item, .weakness-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.strength-item:hover, .weakness-item:hover {
+    transform: translateY(-3px);
+}
+
+.strength-item {
+    border: 2px solid rgba(0, 255, 0, 0.3);
+}
+
+.weakness-item {
+    border: 2px solid rgba(255, 0, 0, 0.3);
+}
+
+.strength-item i, .weakness-item i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.strength-item i { color: #00FF00; }
+.weakness-item i { color: #FF0000; }
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .card-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-title {
+        justify-content: center;
+    }
+
+    .card-elixir {
+        margin: 20px auto 0;
+    }
+
+    .card-description {
+        margin: 0 auto 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-name {
+        font-size: 2.5rem;
+    }
+
+    .main-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .strengths-weaknesses {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-name {
+        font-size: 2rem;
+    }
+
+    .card-rarity {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    .main-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .info-section {
+        padding: 20px;
+    }
+}
